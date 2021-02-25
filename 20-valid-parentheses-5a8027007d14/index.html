@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="912. Sort an Array, Chang&#39;s Tech Stack">
+    <meta name="keywords" content="20. Valid Parentheses, Chang&#39;s Tech Stack">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>912. Sort an Array | Chang&#39;s Tech Stack</title>
+    <title>20. Valid Parentheses | Chang&#39;s Tech Stack</title>
     <link rel="icon" type="image/png" href="/favicon.webp">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -205,12 +205,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.webp')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.webp')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">912. Sort an Array</h1>
+                    <h1 class="description center-align post-title">20. Valid Parentheses</h1>
                 </div>
             </div>
         </div>
@@ -330,12 +330,12 @@
                                 <span class="chip bg-color">Java</span>
                             </a>
                         
-                            <a href="/tags/Array/">
-                                <span class="chip bg-color">Array</span>
+                            <a href="/tags/String/">
+                                <span class="chip bg-color">String</span>
                             </a>
                         
-                            <a href="/tags/Sort/">
-                                <span class="chip bg-color">Sort</span>
+                            <a href="/tags/Stack/">
+                                <span class="chip bg-color">Stack</span>
                             </a>
                         
                     </div>
@@ -359,7 +359,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-02-07
+                    2021-02-25
                 </div>
                 
 
@@ -398,78 +398,72 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given an array of integers <code>nums</code>, sort the array in ascending order.</p>
-<p><strong>Example 1</strong>:</p>
-<blockquote>
-<p><strong>input</strong>: sums = [5,1,1,2,0,0]</p>
-<p><strong>Output</strong>: [0,0,1,1,2,5]</p>
-</blockquote>
-<p><strong>Constraints</strong>:</p>
-<ul>
-<li><code>1 &lt;= nums.length &lt;= 50000</code></li>
-<li><code>-50000 &lt;= nums[i] &lt;= 50000</code></li>
-</ul>
-<h2 id="Declarations-amp-amp-Discussion"><a href="#Declarations-amp-amp-Discussion" class="headerlink" title="Declarations &amp;&amp; Discussion"></a>Declarations &amp;&amp; Discussion</h2><ol>
-<li>输入输出类型？均为int array</li>
+                <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given a string <code>s</code> containing just the characters <code>'('</code>, <code>')'</code>, <code>'{'</code>, <code>'}'</code>, <code>'['</code> and <code>']'</code>, determine if the input string is valid.</p>
+<p>An input string is valid if:</p>
+<ol>
+<li>Open brackets must be closed by the same type of brackets.</li>
+<li>Open brackets must be closed in the correct order.</li>
 </ol>
-<h3 id="解法思路"><a href="#解法思路" class="headerlink" title="解法思路"></a>解法思路</h3><h4 id="Top-down-Merge-Sort"><a href="#Top-down-Merge-Sort" class="headerlink" title="Top-down Merge Sort"></a>Top-down Merge Sort</h4><p>没什么好说的，就经典merge sort，套模板即可</p>
-<h5 id="Complexity"><a href="#Complexity" class="headerlink" title="Complexity"></a>Complexity</h5><ul>
-<li><strong>Time</strong>:$O(NlogN)$</li>
-<li><strong>Space</strong>: $O(N)$</li>
+<p><strong>Example 1:</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">Input: s = "()"
+Output: true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><strong>Example 2:</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">Input: s = "()[]{}"
+Output: true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><strong>Example 3:</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">Input: s = "(]"
+Output: false<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><strong>Example 4:</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">Input: s = "([)]"
+Output: false<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><strong>Example 5:</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">Input: s = "{[]}"
+Output: true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>1 &lt;= s.length &lt;= 104</code></li>
+<li><code>s</code> consists of parentheses only <code>'()[]{}'</code>.</li>
+</ul>
+<h2 id="Declaration-amp-amp-Discussion"><a href="#Declaration-amp-amp-Discussion" class="headerlink" title="Declaration &amp;&amp; Discussion"></a>Declaration &amp;&amp; Discussion</h2><h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><h4 id="Stack"><a href="#Stack" class="headerlink" title="Stack"></a>Stack</h4><p>Using a stack data structure. </p>
+<ul>
+<li>if the string length is odd, there is no chance that it is a valid parenthes string.</li>
+<li>If we encounter any open parenthes, we push the corresponding close parenthes into the stack.</li>
+<li>if we encounter any close parenthes, we test if the stack is empty or if the close parenthes matches the poped out element.</li>
+<li>finally, we test if the stack is empty.</li>
+</ul>
+<h5 id="Complexity-analysis"><a href="#Complexity-analysis" class="headerlink" title="Complexity analysis"></a>Complexity analysis</h5><ul>
+<li><strong>Time</strong>:$O(N)$. Since we only traverse the given string once.</li>
+<li><strong>Space</strong>:$O(N)$. Since we need to push at most N elements into the stack</li>
 </ul>
 <h5 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
-    <span class="token comment">// Auxilury array</span>
-    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> aux<span class="token punctuation">;</span>
     
-    <span class="token keyword">public</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">sortArray</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment">// Allocate space just once</span>
-        aux <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span>nums<span class="token punctuation">.</span>length<span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token function">mergeSort</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> nums<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isValid</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// Using Deque implementation since java doc pointed out that stack interface is legacy and Deque is prefered.</span>
+        <span class="token class-name">Deque</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Character</span><span class="token punctuation">&gt;</span></span> stack <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayDeque</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         
-        <span class="token keyword">return</span> nums<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">mergeSort</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> lo<span class="token punctuation">,</span> <span class="token keyword">int</span> hi<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>hi <span class="token operator">&lt;=</span> lo<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> len <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// If the length of the string is odd, there is no chance that it is valid.</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>len <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
         
-        <span class="token keyword">int</span> mid <span class="token operator">=</span> lo <span class="token operator">+</span> <span class="token punctuation">(</span>hi <span class="token operator">-</span> lo<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">;</span>
-        
-        <span class="token comment">// Sort the left half</span>
-        <span class="token function">mergeSort</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> lo<span class="token punctuation">,</span> mid<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment">// Sort the right half</span>
-        <span class="token function">mergeSort</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> mid <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> hi<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment">// Merge them</span>
-        <span class="token function">merge</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> lo<span class="token punctuation">,</span> mid<span class="token punctuation">,</span> hi<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">merge</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> lo<span class="token punctuation">,</span> <span class="token keyword">int</span> mid<span class="token punctuation">,</span> <span class="token keyword">int</span> hi<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">int</span> i <span class="token operator">=</span> lo<span class="token punctuation">;</span>
-        <span class="token keyword">int</span> j <span class="token operator">=</span> mid <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
-        
-        <span class="token comment">// Copy a[lo..hi] to aux[lo..hi]</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> k <span class="token operator">=</span> lo<span class="token punctuation">;</span> k <span class="token operator">&lt;=</span> hi<span class="token punctuation">;</span> k<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            aux<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">=</span> a<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token comment">// Merge back to a[lo..hi]</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> k <span class="token operator">=</span> lo<span class="token punctuation">;</span> k <span class="token operator">&lt;=</span> hi<span class="token punctuation">;</span> k<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token comment">// left half exhausted, take the right</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">&gt;</span> mid<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                a<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">=</span> aux<span class="token punctuation">[</span>j<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-            <span class="token comment">// right half exhausted, take the left</span>
-            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>j <span class="token operator">&gt;</span> hi<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                a<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">=</span> aux<span class="token punctuation">[</span>i<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-            <span class="token comment">// current key on left less than current key on right</span>
-            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>aux<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;</span> aux<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                a<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">=</span> aux<span class="token punctuation">[</span>i<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-            <span class="token comment">// current key on left greater than or equal to current key on right</span>
-                a<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">=</span> aux<span class="token punctuation">[</span>j<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">char</span> c <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>c <span class="token operator">==</span> <span class="token string">'('</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                stack<span class="token punctuation">.</span><span class="token function">addFirst</span><span class="token punctuation">(</span><span class="token string">')'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>c <span class="token operator">==</span> <span class="token string">'['</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                stack<span class="token punctuation">.</span><span class="token function">addFirst</span><span class="token punctuation">(</span><span class="token string">']'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>c <span class="token operator">==</span> <span class="token string">'{'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                stack<span class="token punctuation">.</span><span class="token function">addFirst</span><span class="token punctuation">(</span><span class="token string">'}'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>stack<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">||</span> stack<span class="token punctuation">.</span><span class="token function">removeFirst</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> c<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
         <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> stack<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -496,7 +490,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://beartechroad.github.io/912-sort-an-array-dcb023da7130/">https://beartechroad.github.io/912-sort-an-array-dcb023da7130/</a>
+                    <a href="https://beartechroad.github.io/20-valid-parentheses-5a8027007d14/">https://beartechroad.github.io/20-valid-parentheses-5a8027007d14/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -538,12 +532,12 @@
                                     <span class="chip bg-color">Java</span>
                                 </a>
                             
-                                <a href="/tags/Array/">
-                                    <span class="chip bg-color">Array</span>
+                                <a href="/tags/String/">
+                                    <span class="chip bg-color">String</span>
                                 </a>
                             
-                                <a href="/tags/Sort/">
-                                    <span class="chip bg-color">Sort</span>
+                                <a href="/tags/Stack/">
+                                    <span class="chip bg-color">Stack</span>
                                 </a>
                             
                         </div>
@@ -589,29 +583,30 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/1-two-sum-f014e3980c49/">
+                <a href="/20-valid-parentheses-5a8027007d14/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.webp" class="responsive-img" alt="1. Two Sum">
+                        <img src="/medias/featureimages/19.webp" class="responsive-img" alt="20. Valid Parentheses">
                         
-                        <span class="card-title">1. Two Sum</span>
+                        <span class="card-title">20. Valid Parentheses</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            这是你自定义的文章摘要内容，如果这个属性有值，文章卡片摘要就显示这段文字，否则程序会自动截取文章的部分内容作为摘要
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-25
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-25
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -624,6 +619,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -631,12 +627,12 @@
                         <span class="chip bg-color">Java</span>
                     </a>
                     
-                    <a href="/tags/Array/">
-                        <span class="chip bg-color">Array</span>
+                    <a href="/tags/String/">
+                        <span class="chip bg-color">String</span>
                     </a>
                     
-                    <a href="/tags/Hash-Table/">
-                        <span class="chip bg-color">Hash Table</span>
+                    <a href="/tags/Stack/">
+                        <span class="chip bg-color">Stack</span>
                     </a>
                     
                 </div>
@@ -650,24 +646,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/merge-sort-e12b4d1ac11a/">
+                <a href="/21-merge-two-sorted-lists-2018bf3a5475/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.webp" class="responsive-img" alt="Merge Sort">
+                        <img src="/medias/featureimages/7.webp" class="responsive-img" alt="21. Merge Two Sorted Lists">
                         
-                        <span class="card-title">Merge Sort</span>
+                        <span class="card-title">21. Merge Two Sorted Lists</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            这是你自定义的文章摘要内容，如果这个属性有值，文章卡片摘要就显示这段文字，否则程序会自动截取文章的部分内容作为摘要
+                            
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-25
                             </span>
                         <span class="publish-author">
                             
@@ -684,20 +680,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Java/">
-                        <span class="chip bg-color">Java</span>
+                    <a href="/tags/Linked-List/">
+                        <span class="chip bg-color">Linked List</span>
                     </a>
                     
-                    <a href="/tags/Tutorial/">
-                        <span class="chip bg-color">Tutorial</span>
-                    </a>
-                    
-                    <a href="/tags/Sorting-Algorithm/">
-                        <span class="chip bg-color">Sorting Algorithm</span>
-                    </a>
-                    
-                    <a href="/tags/Template/">
-                        <span class="chip bg-color">Template</span>
+                    <a href="/tags/Recursion/">
+                        <span class="chip bg-color">Recursion</span>
                     </a>
                     
                 </div>
@@ -828,13 +816,6 @@
 
 </main>
 
-
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
 
 
 
