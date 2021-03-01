@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>104. Maximum Depth of Binary Tree</title>
+      <link href="104-maximum-depth-of-binary-tree-34119d25117a/"/>
+      <url>104-maximum-depth-of-binary-tree-34119d25117a/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given the <code>root</code> of a binary tree, return <em>its maximum depth</em>.</p><p>A binary tree’s <strong>maximum depth</strong> is the number of nodes along the longest path from the root node down to the farthest leaf node.</p><p><strong>Example 1:</strong></p><pre class="line-numbers language-none"><code class="language-none">Input: root = [3,9,20,null,null,15,7]Output: 3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p><strong>Example 2:</strong></p><pre class="line-numbers language-none"><code class="language-none">Input: root = [1,null,2]Output: 2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p><strong>Example 3:</strong></p><pre class="line-numbers language-none"><code class="language-none">Input: root = []Output: 0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p><strong>Example 4:</strong></p><pre class="line-numbers language-none"><code class="language-none">Input: root = [0]Output: 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p><strong>Constraints:</strong></p><ul><li>The number of nodes in the tree is in the range <code>[0, 104]</code>.</li><li><code>-100 &lt;= Node.val &lt;= 100</code></li></ul><h2 id="Declaration-amp-amp-Discussion"><a href="#Declaration-amp-amp-Discussion" class="headerlink" title="Declaration &amp;&amp; Discussion"></a>Declaration &amp;&amp; Discussion</h2><h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><h4 id="Recursion"><a href="#Recursion" class="headerlink" title="Recursion"></a>Recursion</h4><p>Recursively find the depth of the child node. The depth of each node is the max depth of its two child node plus 1.</p><h5 id="Complexity-analysis"><a href="#Complexity-analysis" class="headerlink" title="Complexity analysis"></a>Complexity analysis</h5><ul><li><strong>Time</strong>: $O(N)$. Since we only visit each node once</li><li><strong>Space</strong>: $O(N)$. If the tree is completely unbalanced. It will take $N$ times to call.</li></ul><h5 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/** * Definition for a binary tree node. * public class TreeNode { *     int val; *     TreeNode left; *     TreeNode right; *     TreeNode() {} *     TreeNode(int val) { this.val = val; } *     TreeNode(int val, TreeNode left, TreeNode right) { *         this.val = val; *         this.left = left; *         this.right = right; *     } * } */</span><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">maxDepth</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> root<span class="token punctuation">)</span> <span class="token punctuation">{</span>        <span class="token comment">// base case</span>        <span class="token keyword">if</span> <span class="token punctuation">(</span>root <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>            <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>        <span class="token punctuation">}</span>        <span class="token comment">// recursively find the depth of the left node and the right node,</span>        <span class="token comment">// get the maximum of them and add 1.</span>        <span class="token keyword">return</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token function">maxDepth</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">maxDepth</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> LeetCode </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Tree </tag>
+            
+            <tag> DFS </tag>
+            
+            <tag> Recursion </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>5. Longest Palindromic Substring</title>
       <link href="5-longest-palindromic-substring-aaf158c52b06/"/>
       <url>5-longest-palindromic-substring-aaf158c52b06/</url>
@@ -78,9 +107,9 @@
       
         <tags>
             
-            <tag> Linked List </tag>
-            
             <tag> Recursion </tag>
+            
+            <tag> Linked List </tag>
             
         </tags>
       
