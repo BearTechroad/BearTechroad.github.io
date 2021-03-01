@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>226. Invert Binary Tree</title>
+      <link href="226-invert-binary-tree-c20644d662d7/"/>
+      <url>226-invert-binary-tree-c20644d662d7/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Decription"><a href="#Decription" class="headerlink" title="Decription"></a>Decription</h2><p>Invert a binary tree.</p><p><strong>Example:</strong></p><p>Input:</p><pre class="line-numbers language-none"><code class="language-none">     4   /   \  2     7 / \   / \1   3 6   9<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>Output:</p><pre class="line-numbers language-none"><code class="language-none">     4   /   \  7     2 / \   / \9   6 3   1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="Declaration-amp-amp-Discussion"><a href="#Declaration-amp-amp-Discussion" class="headerlink" title="Declaration &amp;&amp; Discussion"></a>Declaration &amp;&amp; Discussion</h2><ol><li>What is the input of this tree? <code>int</code>?</li><li>Will there be empty tree?</li></ol><h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><h4 id="Recursion"><a href="#Recursion" class="headerlink" title="Recursion"></a>Recursion</h4><p>The idea is that the inverse of an empty tree is an empty tree. The inverse tree of a tree with root $r$ and subtree trees $r.left$ and $r.right$ is a tree with root $r$ and subtrees $r.right$ and $r.left$.</p><h5 id="Complexity-analysis"><a href="#Complexity-analysis" class="headerlink" title="Complexity analysis"></a>Complexity analysis</h5><ul><li><strong>Time</strong>: $O(N)$. Since ecah node is only visited once.</li><li><strong>Space</strong>: $O(k)$. Where $k$ is the height of the tree</li></ul><h5 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/** * Definition for a binary tree node. * public class TreeNode { *     int val; *     TreeNode left; *     TreeNode right; *     TreeNode() {} *     TreeNode(int val) { this.val = val; } *     TreeNode(int val, TreeNode left, TreeNode right) { *         this.val = val; *         this.left = left; *         this.right = right; *     } * } */</span><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>    <span class="token keyword">public</span> <span class="token class-name">TreeNode</span> <span class="token function">invertTree</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> root<span class="token punctuation">)</span> <span class="token punctuation">{</span>        <span class="token comment">// base case</span>        <span class="token keyword">if</span> <span class="token punctuation">(</span>root <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>            <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>        <span class="token punctuation">}</span>        <span class="token comment">// invert the subtrees</span>        <span class="token class-name">TreeNode</span> left <span class="token operator">=</span> <span class="token function">invertTree</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token class-name">TreeNode</span> right <span class="token operator">=</span> <span class="token function">invertTree</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>                <span class="token comment">// set left subtree to right side and right subtree to left side.</span>        root<span class="token punctuation">.</span>left <span class="token operator">=</span> right<span class="token punctuation">;</span>        root<span class="token punctuation">.</span>right <span class="token operator">=</span> left<span class="token punctuation">;</span>        <span class="token keyword">return</span> root<span class="token punctuation">;</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> LeetCode </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> Tree </tag>
+            
+            <tag> Recursion </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>104. Maximum Depth of Binary Tree</title>
       <link href="104-maximum-depth-of-binary-tree-34119d25117a/"/>
       <url>104-maximum-depth-of-binary-tree-34119d25117a/</url>
@@ -19,6 +48,8 @@
       
       
         <tags>
+            
+            <tag> Java </tag>
             
             <tag> Tree </tag>
             
@@ -106,6 +137,8 @@
       
       
         <tags>
+            
+            <tag> Java </tag>
             
             <tag> Recursion </tag>
             

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Mac系统从零搭建Hexo博客, Chang&#39;s Tech Stack">
+    <meta name="keywords" content="226. Invert Binary Tree, Chang&#39;s Tech Stack">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Mac系统从零搭建Hexo博客 | Chang&#39;s Tech Stack</title>
+    <title>226. Invert Binary Tree | Chang&#39;s Tech Stack</title>
     <link rel="icon" type="image/png" href="/favicon.webp">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -205,12 +205,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.webp')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.webp')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Mac系统从零搭建Hexo博客</h1>
+                    <h1 class="description center-align post-title">226. Invert Binary Tree</h1>
                 </div>
             </div>
         </div>
@@ -326,12 +326,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%A4%87%E5%BF%98/">
-                                <span class="chip bg-color">备忘</span>
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
                             </a>
                         
-                            <a href="/tags/Hexo/">
-                                <span class="chip bg-color">Hexo</span>
+                            <a href="/tags/Tree/">
+                                <span class="chip bg-color">Tree</span>
+                            </a>
+                        
+                            <a href="/tags/Recursion/">
+                                <span class="chip bg-color">Recursion</span>
                             </a>
                         
                     </div>
@@ -342,8 +346,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E9%83%A8%E8%90%BD%E6%A0%BC/" class="post-category">
-                                部落格
+                            <a href="/categories/LeetCode/" class="post-category">
+                                LeetCode
                             </a>
                         
                     </div>
@@ -355,21 +359,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-01-28
+                    2021-03-01
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-01-29
+                    2021-03-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    191
                 </div>
                 
 
@@ -394,133 +398,60 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>为了系统性记录自己刷题的笔记、配置电脑的历史和备忘自己的技术学习路线，外加受到某NYU学长及花花酱刷题的启发，索性一不做二不休，把自己的网页搭建起来。为什么选Hexo？因为我懒而Hexo简单。即便如此，还是遇到了各种问题，也在百度和google查了无数资料。。。🐻累啊</p>
-<p>此文章记录了MacOS下从零开始搭建部署Hexo博客的流程以及我遇到的各种奇葩问题的解决方法！</p>
-<h2 id="Hexo-简介"><a href="#Hexo-简介" class="headerlink" title="Hexo 简介"></a>Hexo 简介</h2><p>基于Node.Js的一款静态的快速简洁且高效的博客框架。对中文的支持良好同时也有相当出色的英文社区。</p>
-<h2 id="Hexo-安装部署"><a href="#Hexo-安装部署" class="headerlink" title="Hexo 安装部署"></a>Hexo 安装部署</h2><p>以下流程默认已经安装了HomeBrew。什么是HomeBrew？Mac的包管理器，傻瓜操作 makes your life much more easier…..没说的，装它！<a href="">如何安装HomeBrew</a></p>
-<h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><p>程序员必用，别问我为什么，装它！</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ brew <span class="token function">install</span> <span class="token function">git</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>验证安装，看到以下内容证明安装成功。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">git</span> --version
-<span class="token function">git</span> version <span class="token number">2.21</span>.0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h3 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h3><p>Hexo是基于Node.js编写的，所以….装它！当然还需要安装npm。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ brew <span class="token function">install</span> node<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>验证安装，成功安装应该会看到以下内容</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ node -v
-v14.15.4
-$ <span class="token function">npm</span> -v
-<span class="token number">6.14</span>.10<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>就按照官网上写的就行了，Easy！</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">npm</span> <span class="token function">install</span> -g hexo-cli<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>看看安装的怎么样了。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo -v
-INFO  Validating config
-hexo: <span class="token number">5.3</span>.0
-hexo-cli: <span class="token number">4.2</span>.0
-os: Darwin <span class="token number">19.4</span>.0 darwin x64
-node: <span class="token number">14.15</span>.4
-v8: <span class="token number">8.4</span>.371.19-node.17
-uv: <span class="token number">1.40</span>.0
-zlib: <span class="token number">1.2</span>.11
-brotli: <span class="token number">1.0</span>.9
-ares: <span class="token number">1.16</span>.1
-modules: <span class="token number">83</span>
-nghttp2: <span class="token number">1.41</span>.0
-napi: <span class="token number">7</span>
-llhttp: <span class="token number">2.1</span>.3
-openssl: <span class="token number">1.1</span>.1i
-cldr: <span class="token number">37.0</span>
-icu: <span class="token number">67.1</span>
-tz: 2020a
-unicode: <span class="token number">13.0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-<h3 id="初始化Hexo"><a href="#初始化Hexo" class="headerlink" title="初始化Hexo"></a>初始化Hexo</h3><p>首先初始化Hexo，</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo init Blog <span class="token comment"># Blog是你想要写博客的文件夹的名字,随便你怎么写。</span>
-<span class="token comment"># 我看到了这个东西</span>
-INFO  Cloning hexo-starter https://github.com/hexojs/hexo-starter.git
-INFO  Install dependencies
-WARN  Failed to <span class="token function">install</span> dependencies. Please run <span class="token string">'npm install'</span> <span class="token keyword">in</span> <span class="token string">"/Users/elige/Desktop/code_galaxy/Blog"</span> folder.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>然后，</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token builtin class-name">cd</span> Blog
-$ <span class="token function">npm</span> <span class="token function">install</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>成功的话，你的文件夹现在应该大致是这个结构</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">.</span>
-├── _config.yml
-├── package.json
-├── scaffolds
-├── <span class="token builtin class-name">source</span>
-<span class="token operator">|</span>   ├── _drafts
-<span class="token operator">|</span>   └── _posts
-└── themes
-
-<span class="token comment"># 我的长这样</span>
-$ <span class="token function">ls</span>
-_config.landscape.yml package-lock.json     <span class="token builtin class-name">source</span>
-_config.yml           package.json          themes
-node_modules          scaffolds<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li>node_modules: 依赖包</li>
-<li>public: 生成的页面</li>
-<li>scaffolds: 模板文件</li>
-<li>source: 存放文章的地方</li>
-<li>themes: 放主题的地方</li>
-<li><strong><em>_config.yml</em></strong>: 大部分主要的博客配置都在这里</li>
-</ul>
-<p>现在来运行一下看看，</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo g <span class="token operator">&amp;&amp;</span> hexo s
-<span class="token comment"># hexo generate 和 hexo server的缩写</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>在浏览器输入<code>localhost:4000</code>就可以看到Hexo的默认博客了，用<code>ctrl+C</code>关掉。</p>
-<h3 id="GitHub创建个人仓库"><a href="#GitHub创建个人仓库" class="headerlink" title="GitHub创建个人仓库"></a>GitHub创建个人仓库</h3><p>新建一个GitHub仓库，因为要部署到GitHub page，所以一仓库名一定要是这样<code>你的用户名.github.io</code></p>
-<h3 id="生成SSH并且添加到GitHub"><a href="#生成SSH并且添加到GitHub" class="headerlink" title="生成SSH并且添加到GitHub"></a>生成SSH并且添加到GitHub</h3><p>打开Terminal，</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ ssh-keygen -t rsa -C <span class="token string">"your_email@example.com"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>一路回车，然后，</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">cat</span> ~/.ssh/id_rsa.pub
-<span class="token comment"># 复制你看到的那一大堆东西</span>
-<span class="token comment"># 方法二：</span>
-$ pbcopy <span class="token operator">&lt;</span> ~/.ssh/id_rsa.pub<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>然后到GitHub的Setting中，找到SSH keys的选项，点击<code>New SSH key</code>， 把刚才复制的那一串复制进去。</p>
-<p>接下来，如果你在这个电脑上只会用一个GitHub账号，那么可以这么做，</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">git</span> config --global user.name <span class="token string">"your name"</span>
-$ <span class="token function">git</span> config --global user.email <span class="token string">"your_email@youremail.com"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>看看成功没，</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">ssh</span> -T git@github.com
-Hi EliGe<span class="token operator">!</span> You've successfully authenticated, but GitHub does not provide shell access.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>出现上述内容表示成功。</p>
-<p>如果你和我一样用第二个账户做博客，看这里：<a href="">一台电脑部署多个Hexo账户</a></p>
-<h3 id="将Hexo部署到GitHub"><a href="#将Hexo部署到GitHub" class="headerlink" title="将Hexo部署到GitHub"></a>将Hexo部署到GitHub</h3><p>打开<code>_config.yml</code>，拉到最后，改成这样，</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">deploy:
-  type: <span class="token function">git</span>
-  repo: https://github.com/YourgithubName/YourgithubName.github.io.git
-  branch: master<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>然后安装deploy-git插件，</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">npm</span> <span class="token function">install</span> hexo-deployer-git --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>运行，</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo clean <span class="token operator">&amp;&amp;</span> hexo g <span class="token operator">&amp;&amp;</span> hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>啪的一下，很快的！然后就可以去<code>http://yourname.github.io</code>看博客了，如果没有，那就等一会儿！</p>
-<h4 id="这里有可能会遇到一个神奇的问题，"><a href="#这里有可能会遇到一个神奇的问题，" class="headerlink" title="这里有可能会遇到一个神奇的问题，"></a>这里有可能会遇到一个神奇的问题，</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">TypeError <span class="token punctuation">[</span>ERR_INVALID_ARG_TYPE<span class="token punctuation">]</span>: The <span class="token string">"mode"</span> argument must be integer. Received an instance of Object<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>查了一大堆资料，问题应该是Hexo和Node的版本适配问题，一个版本过高，一个版本过低。我是降低了node的版本，</p>
-<ol>
-<li><p>安装n模块</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">sudo</span> <span class="token function">npm</span> <span class="token function">install</span> -g n<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-</li>
-<li><p>升级node到最新稳定版</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">sudo</span> n stable<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-</li>
-<li><p>升级到最新版</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">sudo</span> n latest<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><p>n后面跟版本号</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">sudo</span> n v14.15.4<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><p>查看已安装的版本</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">sudo</span> n<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><p>切换版本</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">sudo</span> n <span class="token number">14.15</span>.4<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><p>删除版本</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">sudo</span> n <span class="token function">rm</span> <span class="token number">14.15</span>.4<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
+                <h2 id="Decription"><a href="#Decription" class="headerlink" title="Decription"></a>Decription</h2><p>Invert a binary tree.</p>
+<p><strong>Example:</strong></p>
+<p>Input:</p>
+<pre class="line-numbers language-none"><code class="language-none">     4
+   /   \
+  2     7
+ / \   / \
+1   3 6   9<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Output:</p>
+<pre class="line-numbers language-none"><code class="language-none">     4
+   /   \
+  7     2
+ / \   / \
+9   6 3   1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="Declaration-amp-amp-Discussion"><a href="#Declaration-amp-amp-Discussion" class="headerlink" title="Declaration &amp;&amp; Discussion"></a>Declaration &amp;&amp; Discussion</h2><ol>
+<li>What is the input of this tree? <code>int</code>?</li>
+<li>Will there be empty tree?</li>
 </ol>
+<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><h4 id="Recursion"><a href="#Recursion" class="headerlink" title="Recursion"></a>Recursion</h4><p>The idea is that the inverse of an empty tree is an empty tree. The inverse tree of a tree with root $r$ and subtree trees $r.left$ and $r.right$ is a tree with root $r$ and subtrees $r.right$ and $r.left$.</p>
+<h5 id="Complexity-analysis"><a href="#Complexity-analysis" class="headerlink" title="Complexity analysis"></a>Complexity analysis</h5><ul>
+<li><strong>Time</strong>: $O(N)$. Since ecah node is only visited once.</li>
+<li><strong>Space</strong>: $O(k)$. Where $k$ is the height of the tree</li>
+</ul>
+<h5 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token class-name">TreeNode</span> <span class="token function">invertTree</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> root<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// base case</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>root <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment">// invert the subtrees</span>
+        <span class="token class-name">TreeNode</span> left <span class="token operator">=</span> <span class="token function">invertTree</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">TreeNode</span> right <span class="token operator">=</span> <span class="token function">invertTree</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        
+        <span class="token comment">// set left subtree to right side and right subtree to left side.</span>
+        root<span class="token punctuation">.</span>left <span class="token operator">=</span> right<span class="token punctuation">;</span>
+        root<span class="token punctuation">.</span>right <span class="token operator">=</span> left<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> root<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -547,7 +478,7 @@ Hi EliGe<span class="token operator">!</span> You've successfully authenticated,
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://beartechroad.github.io/mac-setup-hexo-6ea158d3758a/">https://beartechroad.github.io/mac-setup-hexo-6ea158d3758a/</a>
+                    <a href="https://beartechroad.github.io/226-invert-binary-tree-c20644d662d7/">https://beartechroad.github.io/226-invert-binary-tree-c20644d662d7/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -585,12 +516,16 @@ Hi EliGe<span class="token operator">!</span> You've successfully authenticated,
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%A4%87%E5%BF%98/">
-                                    <span class="chip bg-color">备忘</span>
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
                                 </a>
                             
-                                <a href="/tags/Hexo/">
-                                    <span class="chip bg-color">Hexo</span>
+                                <a href="/tags/Tree/">
+                                    <span class="chip bg-color">Tree</span>
+                                </a>
+                            
+                                <a href="/tags/Recursion/">
+                                    <span class="chip bg-color">Recursion</span>
                                 </a>
                             
                         </div>
@@ -636,88 +571,36 @@ Hi EliGe<span class="token operator">!</span> You've successfully authenticated,
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/hexo-matery-zhu-ti-you-hua-707b7bfdb485/">
+                <a href="/226-invert-binary-tree-c20644d662d7/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.webp" class="responsive-img" alt="Hexo Matery 主题优化">
+                        <img src="/medias/featureimages/9.webp" class="responsive-img" alt="226. Invert Binary Tree">
                         
-                        <span class="card-title">Hexo Matery 主题优化</span>
+                        <span class="card-title">226. Invert Binary Tree</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-28
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E9%83%A8%E8%90%BD%E6%A0%BC/" class="post-category">
-                                    部落格
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E5%A4%87%E5%BF%98/">
-                        <span class="chip bg-color">备忘</span>
-                    </a>
-                    
-                    <a href="/tags/Hexo/">
-                        <span class="chip bg-color">Hexo</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/mac-setup-hexo-6ea158d3758a/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/12.webp" class="responsive-img" alt="Mac系统从零搭建Hexo博客">
-                        
-                        <span class="card-title">Mac系统从零搭建Hexo博客</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            这是你自定义的文章摘要内容，如果这个属性有值，文章卡片摘要就显示这段文字，否则程序会自动截取文章的部分内容作为摘要
+                            LeetCode 226. Invert Binary Tree
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-28
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-01
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E9%83%A8%E8%90%BD%E6%A0%BC/" class="post-category">
-                                    部落格
+                            <a href="/categories/LeetCode/" class="post-category">
+                                    LeetCode
                                 </a>
                             
                             
@@ -728,12 +611,77 @@ Hi EliGe<span class="token operator">!</span> You've successfully authenticated,
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%A4%87%E5%BF%98/">
-                        <span class="chip bg-color">备忘</span>
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
                     </a>
                     
-                    <a href="/tags/Hexo/">
-                        <span class="chip bg-color">Hexo</span>
+                    <a href="/tags/Tree/">
+                        <span class="chip bg-color">Tree</span>
+                    </a>
+                    
+                    <a href="/tags/Recursion/">
+                        <span class="chip bg-color">Recursion</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/104-maximum-depth-of-binary-tree-34119d25117a/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.webp" class="responsive-img" alt="104. Maximum Depth of Binary Tree">
+                        
+                        <span class="card-title">104. Maximum Depth of Binary Tree</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/LeetCode/" class="post-category">
+                                    LeetCode
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/Tree/">
+                        <span class="chip bg-color">Tree</span>
+                    </a>
+                    
+                    <a href="/tags/DFS/">
+                        <span class="chip bg-color">DFS</span>
+                    </a>
+                    
+                    <a href="/tags/Recursion/">
+                        <span class="chip bg-color">Recursion</span>
                     </a>
                     
                 </div>
@@ -864,6 +812,13 @@ Hi EliGe<span class="token operator">!</span> You've successfully authenticated,
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 
