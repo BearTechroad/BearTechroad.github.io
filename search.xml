@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>645. Set Mismatch</title>
+      <link href="645-set-mismatch-aed28f904fb5/"/>
+      <url>645-set-mismatch-aed28f904fb5/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>You have a set of integers <code>s</code>, which originally contains all the numbers from <code>1</code> to <code>n</code>. Unfortunately, due to some error, one of the numbers in <code>s</code> got duplicated to another number in the set, which results in <strong>repetition of one</strong> number and <strong>loss of another</strong> number.</p><p>You are given an integer array <code>nums</code> representing the data status of this set after the error.</p><p>Find the number that occurs twice and the number that is missing and return <em>them in the form of an array</em>.</p><p><strong>Example 1:</strong></p><pre class="line-numbers language-none"><code class="language-none">Input: nums = [1,2,2,4]Output: [2,3]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p><strong>Example 2:</strong></p><pre class="line-numbers language-none"><code class="language-none">Input: nums = [1,1]Output: [1,2]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p><strong>Constraints:</strong></p><ul><li><code>2 &lt;= nums.length &lt;= 104</code></li><li><code>1 &lt;= nums[i] &lt;= 104</code></li></ul><h2 id="Declaration-amp-amp-Discussion"><a href="#Declaration-amp-amp-Discussion" class="headerlink" title="Declaration &amp;&amp; Discussion"></a>Declaration &amp;&amp; Discussion</h2><h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><h4 id="Using-Map"><a href="#Using-Map" class="headerlink" title="Using Map"></a>Using Map</h4><p>Store array in a hash map. Iterate the map, if one key have value 2, it is the duplicated one. And the <code>i</code> without a key is the one missing.</p><h5 id="Complexity-analysis"><a href="#Complexity-analysis" class="headerlink" title="Complexity analysis"></a>Complexity analysis</h5><ul><li><strong>Time</strong>: $O(N)$</li><li><strong>Space</strong>: $O(N)$.</li></ul><h5 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>    <span class="token keyword">public</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">findErrorNums</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>        <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">,</span> <span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                <span class="token keyword">int</span> dup <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>        <span class="token keyword">int</span> missing <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>                <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> n <span class="token operator">:</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>            map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> map<span class="token punctuation">.</span><span class="token function">getOrDefault</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token punctuation">}</span>                <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>            <span class="token keyword">if</span> <span class="token punctuation">(</span>map<span class="token punctuation">.</span><span class="token function">containsKey</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>                <span class="token keyword">if</span> <span class="token punctuation">(</span>map<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>                    dup <span class="token operator">=</span> i<span class="token punctuation">;</span>                <span class="token punctuation">}</span>            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>                missing <span class="token operator">=</span> i<span class="token punctuation">;</span>            <span class="token punctuation">}</span>        <span class="token punctuation">}</span>        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">{</span>dup<span class="token punctuation">,</span> missing<span class="token punctuation">}</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> LeetCode </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> Hash Table </tag>
+            
+            <tag> Math </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>237. Delete Node in a Linked List</title>
       <link href="237-delete-node-in-a-linked-list-84f3659c3c90/"/>
       <url>237-delete-node-in-a-linked-list-84f3659c3c90/</url>
@@ -105,9 +134,9 @@
             
             <tag> Java </tag>
             
-            <tag> Tree </tag>
-            
             <tag> DFS </tag>
+            
+            <tag> Tree </tag>
             
             <tag> Recursion </tag>
             
