@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="645. Set Mismatch, Chang&#39;s Tech Stack">
+    <meta name="keywords" content="94. Binary Tree Inorder Traversal, Chang&#39;s Tech Stack">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>645. Set Mismatch | Chang&#39;s Tech Stack</title>
+    <title>94. Binary Tree Inorder Traversal | Chang&#39;s Tech Stack</title>
     <link rel="icon" type="image/png" href="/favicon.webp">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -205,12 +205,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.webp')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/25.webp')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">645. Set Mismatch</h1>
+                    <h1 class="description center-align post-title">94. Binary Tree Inorder Traversal</h1>
                 </div>
             </div>
         </div>
@@ -330,12 +330,16 @@
                                 <span class="chip bg-color">Java</span>
                             </a>
                         
-                            <a href="/tags/Hash-Table/">
-                                <span class="chip bg-color">Hash Table</span>
+                            <a href="/tags/Tree/">
+                                <span class="chip bg-color">Tree</span>
                             </a>
                         
-                            <a href="/tags/Math/">
-                                <span class="chip bg-color">Math</span>
+                            <a href="/tags/Recursion/">
+                                <span class="chip bg-color">Recursion</span>
+                            </a>
+                        
+                            <a href="/tags/Stack/">
+                                <span class="chip bg-color">Stack</span>
                             </a>
                         
                     </div>
@@ -359,21 +363,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-03
+                    2021-03-04
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-03
+                    2021-03-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    222
+                    211
                 </div>
                 
 
@@ -398,48 +402,69 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>You have a set of integers <code>s</code>, which originally contains all the numbers from <code>1</code> to <code>n</code>. Unfortunately, due to some error, one of the numbers in <code>s</code> got duplicated to another number in the set, which results in <strong>repetition of one</strong> number and <strong>loss of another</strong> number.</p>
-<p>You are given an integer array <code>nums</code> representing the data status of this set after the error.</p>
-<p>Find the number that occurs twice and the number that is missing and return <em>them in the form of an array</em>.</p>
+                <h2 id="Decription"><a href="#Decription" class="headerlink" title="Decription"></a>Decription</h2><p>Given the <code>root</code> of a binary tree, return <em>the inorder traversal of its nodes’ values</em>. </p>
 <p><strong>Example 1:</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">Input: nums = [1,2,2,4]
-Output: [2,3]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">Input: root = [1,null,2,3]
+Output: [1,3,2]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p><strong>Example 2:</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">Input: nums = [1,1]
+<pre class="line-numbers language-none"><code class="language-none">Input: root = []
+Output: []<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><strong>Example 3:</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">Input: root = [1]
+Output: [1]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><strong>Example 4:</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">Input: root = [1,2]
+Output: [2,1]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><strong>Example 5:</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">Input: root = [1,null,2]
 Output: [1,2]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p><strong>Constraints:</strong></p>
 <ul>
-<li><code>2 &lt;= nums.length &lt;= 104</code></li>
-<li><code>1 &lt;= nums[i] &lt;= 104</code></li>
+<li>The number of nodes in the tree is in the range <code>[0, 100]</code>.</li>
+<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
 </ul>
-<h2 id="Declaration-amp-amp-Discussion"><a href="#Declaration-amp-amp-Discussion" class="headerlink" title="Declaration &amp;&amp; Discussion"></a>Declaration &amp;&amp; Discussion</h2><h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><h4 id="Using-Map"><a href="#Using-Map" class="headerlink" title="Using Map"></a>Using Map</h4><p>Store array in a hash map. Iterate the map, if one key have value 2, it is the duplicated one. And the <code>i</code> without a key is the one missing.</p>
+<p><strong>Follow up:</strong></p>
+<p>Recursive solution is trivial, could you do it iteratively?</p>
+<h2 id="Declaration-amp-amp-Discussion"><a href="#Declaration-amp-amp-Discussion" class="headerlink" title="Declaration &amp;&amp; Discussion"></a>Declaration &amp;&amp; Discussion</h2><h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><h4 id="Recursion"><a href="#Recursion" class="headerlink" title="Recursion"></a>Recursion</h4><p>Just follow the template and do the inorder traversal.</p>
 <h5 id="Complexity-analysis"><a href="#Complexity-analysis" class="headerlink" title="Complexity analysis"></a>Complexity analysis</h5><ul>
-<li><strong>Time</strong>: $O(N)$</li>
+<li><strong>Time</strong>: $O(N)$. </li>
 <li><strong>Space</strong>: $O(N)$.</li>
 </ul>
-<h5 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">findErrorNums</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">,</span> <span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        
-        <span class="token keyword">int</span> dup <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
-        <span class="token keyword">int</span> missing <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
-        
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> n <span class="token operator">:</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> map<span class="token punctuation">.</span><span class="token function">getOrDefault</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>map<span class="token punctuation">.</span><span class="token function">containsKey</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token keyword">if</span> <span class="token punctuation">(</span>map<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    dup <span class="token operator">=</span> i<span class="token punctuation">;</span>
-                <span class="token punctuation">}</span>
-            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-                missing <span class="token operator">=</span> i<span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">{</span>dup<span class="token punctuation">,</span> missing<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<h5 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> <span class="token function">inorderTraversal</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> root<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> res <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// helper function to do the traverse</span>
+        <span class="token function">traverse</span><span class="token punctuation">(</span>root<span class="token punctuation">,</span> res<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> res<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">traverse</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> root<span class="token punctuation">,</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> res<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// base case</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>root <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        
+        <span class="token comment">// inorder traversal template...quite simple</span>
+        <span class="token function">traverse</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">,</span> res<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        res<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">traverse</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">,</span> res<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -466,7 +491,7 @@ Output: [1,2]<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://beartechroad.github.io/645-set-mismatch-aed28f904fb5/">https://beartechroad.github.io/645-set-mismatch-aed28f904fb5/</a>
+                    <a href="https://beartechroad.github.io/94-binary-tree-inorder-traversal-5d7b9bc3f18b/">https://beartechroad.github.io/94-binary-tree-inorder-traversal-5d7b9bc3f18b/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -508,12 +533,16 @@ Output: [1,2]<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
                                     <span class="chip bg-color">Java</span>
                                 </a>
                             
-                                <a href="/tags/Hash-Table/">
-                                    <span class="chip bg-color">Hash Table</span>
+                                <a href="/tags/Tree/">
+                                    <span class="chip bg-color">Tree</span>
                                 </a>
                             
-                                <a href="/tags/Math/">
-                                    <span class="chip bg-color">Math</span>
+                                <a href="/tags/Recursion/">
+                                    <span class="chip bg-color">Recursion</span>
+                                </a>
+                            
+                                <a href="/tags/Stack/">
+                                    <span class="chip bg-color">Stack</span>
                                 </a>
                             
                         </div>
@@ -559,9 +588,72 @@ Output: [1,2]<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/94-binary-tree-inorder-traversal-5d7b9bc3f18b/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/25.webp" class="responsive-img" alt="94. Binary Tree Inorder Traversal">
+                        
+                        <span class="card-title">94. Binary Tree Inorder Traversal</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            LeetCode 94
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/LeetCode/" class="post-category">
+                                    LeetCode
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/Tree/">
+                        <span class="chip bg-color">Tree</span>
+                    </a>
+                    
+                    <a href="/tags/Recursion/">
+                        <span class="chip bg-color">Recursion</span>
+                    </a>
+                    
+                    <a href="/tags/Stack/">
+                        <span class="chip bg-color">Stack</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/136-single-number-4c98d92be5b8/">
                     <div class="card-image">
@@ -579,9 +671,9 @@ Output: [1,2]<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-04
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-04
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -607,59 +699,6 @@ Output: [1,2]<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
                     
                     <a href="/tags/Bit-Manipulation/">
                         <span class="chip bg-color">Bit Manipulation</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/237-delete-node-in-a-linked-list-84f3659c3c90/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/5.webp" class="responsive-img" alt="237. Delete Node in a Linked List">
-                        
-                        <span class="card-title">237. Delete Node in a Linked List</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            LeetCode 237
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-03
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/LeetCode/" class="post-category">
-                                    LeetCode
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Java/">
-                        <span class="chip bg-color">Java</span>
-                    </a>
-                    
-                    <a href="/tags/Linked-List/">
-                        <span class="chip bg-color">Linked List</span>
                     </a>
                     
                 </div>
