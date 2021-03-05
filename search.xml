@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>206. Reverse Linked List</title>
+      <link href="206-reverse-linked-list-bb91ae4ee301/"/>
+      <url>206-reverse-linked-list-bb91ae4ee301/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Decription"><a href="#Decription" class="headerlink" title="Decription"></a>Decription</h2><p>Given the <code>head</code> of a singly linked list, reverse the list, and return <em>the reversed list</em>.</p><p><strong>Example 1:</strong></p><pre class="line-numbers language-none"><code class="language-none">Input: head = [1,2,3,4,5]Output: [5,4,3,2,1]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p><strong>Example 2:</strong></p><pre class="line-numbers language-none"><code class="language-none">Input: head = [1,2]Output: [2,1]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p><strong>Example 3:</strong></p><pre class="line-numbers language-none"><code class="language-none">Input: head = []Output: [] <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p><strong>Constraints:</strong></p><ul><li>The number of nodes in the list is the range <code>[0, 5000]</code>.</li><li><code>-5000 &lt;= Node.val &lt;= 5000</code></li></ul><h2 id="Declaration-amp-amp-Discussion"><a href="#Declaration-amp-amp-Discussion" class="headerlink" title="Declaration &amp;&amp; Discussion"></a>Declaration &amp;&amp; Discussion</h2><h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><h4 id="Recursion"><a href="#Recursion" class="headerlink" title="Recursion"></a>Recursion</h4><blockquote><p><strong>Base Case</strong>: If it is an empty list of if the linked list only has one node, just return itself.</p><p><strong>Recursive Relation</strong>: Every time we call <code>reverseList</code>, by the signature, we should be given the head of the reversed linked list.</p><p>For example, take a linked list 1-&gt;2-&gt;3-&gt;4-&gt;5, by calling <code>reverseList(head.next)</code>, we will get 1-&gt;2&lt;-3&lt;-4&lt;-5. Note that Node 2 is pointing to null. And we then reverse Node 1. Done!</p></blockquote><h5 id="Complexity-analysis"><a href="#Complexity-analysis" class="headerlink" title="Complexity analysis"></a>Complexity analysis</h5><ul><li><strong>Time</strong>: $O(N)$. Since we only call each node once.</li><li><strong>Space</strong>: $O(N)$. Since we need the space the store the ListNode in stack.</li></ul><h5 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/** * Definition for singly-linked list. * public class ListNode { *     int val; *     ListNode next; *     ListNode() {} *     ListNode(int val) { this.val = val; } *     ListNode(int val, ListNode next) { this.val = val; this.next = next; } * } */</span><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>    <span class="token keyword">public</span> <span class="token class-name">ListNode</span> <span class="token function">reverseList</span><span class="token punctuation">(</span><span class="token class-name">ListNode</span> head<span class="token punctuation">)</span> <span class="token punctuation">{</span>        <span class="token comment">// base case</span>        <span class="token keyword">if</span> <span class="token punctuation">(</span> head <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">||</span> head<span class="token punctuation">.</span>next <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>            <span class="token keyword">return</span> head<span class="token punctuation">;</span>        <span class="token punctuation">}</span>        <span class="token comment">// according to the definition of the signiture, reverseList will return the head of the reversed</span>        <span class="token comment">// linked list. Thus, last will be assigned to a head of reversed linked list of head.next</span>        <span class="token class-name">ListNode</span> last <span class="token operator">=</span> <span class="token function">reverseList</span><span class="token punctuation">(</span>head<span class="token punctuation">.</span>next<span class="token punctuation">)</span><span class="token punctuation">;</span>                <span class="token comment">// reverse the 'head' now</span>        head<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next <span class="token operator">=</span> head<span class="token punctuation">;</span>        head<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>        <span class="token keyword">return</span> last<span class="token punctuation">;</span>            <span class="token punctuation">}</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> LeetCode </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> Linked List </tag>
+            
+            <tag> Recursion </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>94. Binary Tree Inorder Traversal</title>
       <link href="94-binary-tree-inorder-traversal-5d7b9bc3f18b/"/>
       <url>94-binary-tree-inorder-traversal-5d7b9bc3f18b/</url>
@@ -22,11 +51,11 @@
             
             <tag> Java </tag>
             
-            <tag> Tree </tag>
+            <tag> Stack </tag>
             
             <tag> Recursion </tag>
             
-            <tag> Stack </tag>
+            <tag> Tree </tag>
             
         </tags>
       
@@ -165,9 +194,9 @@
             
             <tag> Java </tag>
             
-            <tag> Tree </tag>
-            
             <tag> Recursion </tag>
+            
+            <tag> Tree </tag>
             
         </tags>
       
@@ -196,9 +225,9 @@
             
             <tag> DFS </tag>
             
-            <tag> Tree </tag>
-            
             <tag> Recursion </tag>
+            
+            <tag> Tree </tag>
             
         </tags>
       
@@ -283,9 +312,9 @@
             
             <tag> Java </tag>
             
-            <tag> Recursion </tag>
-            
             <tag> Linked List </tag>
+            
+            <tag> Recursion </tag>
             
         </tags>
       
