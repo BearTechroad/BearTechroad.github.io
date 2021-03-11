@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>49. Group Anagrams</title>
+      <link href="49-group-anagrams-a768a50a5e66/"/>
+      <url>49-group-anagrams-a768a50a5e66/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Decription"><a href="#Decription" class="headerlink" title="Decription"></a>Decription</h2><p>Given an array of strings <code>strs</code>, group <strong>the anagrams</strong> together. You can return the answer in <strong>any order</strong>.</p><p>An <strong>Anagram</strong> is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.</p><p><strong>Example 1:</strong></p><pre class="line-numbers language-none"><code class="language-none">Input: strs = ["eat","tea","tan","ate","nat","bat"]Output: [["bat"],["nat","tan"],["ate","eat","tea"]]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p><strong>Example 2:</strong></p><pre class="line-numbers language-none"><code class="language-none">Input: strs = [""]Output: [[""]]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p><strong>Example 3:</strong></p><pre class="line-numbers language-none"><code class="language-none">Input: strs = ["a"]Output: [["a"]]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p><strong>Constraints:</strong></p><ul><li><code>1 &lt;= strs.length &lt;= 104</code></li><li><code>0 &lt;= strs[i].length &lt;= 100</code></li><li><code>strs[i]</code> consists of lower-case English letters.</li></ul><h2 id="Delaration-amp-amp-Discussion"><a href="#Delaration-amp-amp-Discussion" class="headerlink" title="Delaration &amp;&amp; Discussion"></a>Delaration &amp;&amp; Discussion</h2><h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><h4 id="Categorize-by-count"><a href="#Categorize-by-count" class="headerlink" title="Categorize by count"></a>Categorize by count</h4><p>We could use the number of occurrence of each <code>str</code> as key and the corresponding <code>str</code> as the value. If ther have the same count of characters, the have to be <strong>anagrams</strong>.</p><h5 id="Complexity-analysis"><a href="#Complexity-analysis" class="headerlink" title="Complexity analysis"></a>Complexity analysis</h5><ul><li><strong>Time</strong>: $O(NK)$, where $N$ is the length of <code>strs</code> and $K$ is the maximum length of a string in strs.</li><li><strong>Space</strong>: $O(NK)$. The total information content strored in the result</li></ul><h5 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>    <span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">List</span><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span></span> <span class="token function">groupAnagrams</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> strs<span class="token punctuation">)</span> <span class="token punctuation">{</span>        <span class="token keyword">if</span> <span class="token punctuation">(</span>strs <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">||</span>strs<span class="token punctuation">.</span>length <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>            <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token punctuation">}</span>                <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">List</span><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span></span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">String</span> s <span class="token operator">:</span> strs<span class="token punctuation">)</span> <span class="token punctuation">{</span>            <span class="token comment">// count the occurrence of each character in the string element</span>            <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> cr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token number">26</span><span class="token punctuation">]</span><span class="token punctuation">;</span>            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">char</span> c <span class="token operator">:</span> s<span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>                cr<span class="token punctuation">[</span>c <span class="token operator">-</span> <span class="token string">'a'</span><span class="token punctuation">]</span><span class="token operator">++</span><span class="token punctuation">;</span>            <span class="token punctuation">}</span>                        <span class="token class-name">String</span> str <span class="token operator">=</span> <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>cr<span class="token punctuation">)</span><span class="token punctuation">;</span>            <span class="token comment">// put the string into the hash table</span>            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>map<span class="token punctuation">.</span><span class="token function">containsKey</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>                map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>str<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>            <span class="token punctuation">}</span>            map<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token punctuation">}</span>        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span>map<span class="token punctuation">.</span><span class="token function">values</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> LeetCode </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hash Table </tag>
+            
+            <tag> String </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>39. Combination Sum</title>
       <link href="39-combination-sum-183159b0be71/"/>
       <url>39-combination-sum-183159b0be71/</url>
@@ -20,9 +47,9 @@
       
         <tags>
             
-            <tag> Backtracking </tag>
-            
             <tag> Array </tag>
+            
+            <tag> Backtracking </tag>
             
         </tags>
       
@@ -101,9 +128,9 @@
       
         <tags>
             
-            <tag> DFS </tag>
-            
             <tag> BST </tag>
+            
+            <tag> DFS </tag>
             
         </tags>
       
@@ -128,9 +155,9 @@
       
         <tags>
             
-            <tag> DFS </tag>
-            
             <tag> BST </tag>
+            
+            <tag> DFS </tag>
             
         </tags>
       

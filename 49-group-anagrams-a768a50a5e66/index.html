@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="108. Convert Sorted Array to Binary Search Tree, Chang&#39;s Tech Stack">
+    <meta name="keywords" content="49. Group Anagrams, Chang&#39;s Tech Stack">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>108. Convert Sorted Array to Binary Search Tree | Chang&#39;s Tech Stack</title>
+    <title>49. Group Anagrams | Chang&#39;s Tech Stack</title>
     <link rel="icon" type="image/png" href="/favicon.webp">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -210,7 +210,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">108. Convert Sorted Array to Binary Search Tree</h1>
+                    <h1 class="description center-align post-title">49. Group Anagrams</h1>
                 </div>
             </div>
         </div>
@@ -326,12 +326,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/BST/">
-                                <span class="chip bg-color">BST</span>
+                            <a href="/tags/Hash-Table/">
+                                <span class="chip bg-color">Hash Table</span>
                             </a>
                         
-                            <a href="/tags/DFS/">
-                                <span class="chip bg-color">DFS</span>
+                            <a href="/tags/String/">
+                                <span class="chip bg-color">String</span>
                             </a>
                         
                     </div>
@@ -369,7 +369,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    286
+                    265
                 </div>
                 
 
@@ -394,66 +394,52 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given an integer array <code>nums</code> where the elements are sorted in <strong>ascending order</strong>, convert <em>it to a <strong>height-balanced</strong> binary search tree</em>.</p>
-<p>A <strong>height-balanced</strong> binary tree is a binary tree in which the depth of the two subtrees of every node never differs by more than one.</p>
+                <h2 id="Decription"><a href="#Decription" class="headerlink" title="Decription"></a>Decription</h2><p>Given an array of strings <code>strs</code>, group <strong>the anagrams</strong> together. You can return the answer in <strong>any order</strong>.</p>
+<p>An <strong>Anagram</strong> is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.</p>
 <p><strong>Example 1:</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">Input: nums = [-10,-3,0,5,9]
-Output: [0,-3,9,-10,null,5]
-Explanation: [0,-10,5,null,-3,null,9] is also accepted:<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">Input: strs = ["eat","tea","tan","ate","nat","bat"]
+Output: [["bat"],["nat","tan"],["ate","eat","tea"]]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p><strong>Example 2:</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">Input: nums = [1,3]
-Output: [3,1]
-Explanation: [1,3] and [3,1] are both a height-balanced BSTs.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">Input: strs = [""]
+Output: [[""]]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><strong>Example 3:</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">Input: strs = ["a"]
+Output: [["a"]]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p><strong>Constraints:</strong></p>
 <ul>
-<li><code>1 &lt;= nums.length &lt;= 104</code></li>
-<li><code>-104 &lt;= nums[i] &lt;= 104</code></li>
-<li><code>nums</code> is sorted in a <strong>strictly increasing</strong> order.</li>
+<li><code>1 &lt;= strs.length &lt;= 104</code></li>
+<li><code>0 &lt;= strs[i].length &lt;= 100</code></li>
+<li><code>strs[i]</code> consists of lower-case English letters.</li>
 </ul>
-<h2 id="Declaration-amp-amp-Discussion"><a href="#Declaration-amp-amp-Discussion" class="headerlink" title="Declaration &amp;&amp; Discussion"></a>Declaration &amp;&amp; Discussion</h2><h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><h4 id="Preorder-Traversal-with-Left-Middle-Node-as-a-Root"><a href="#Preorder-Traversal-with-Left-Middle-Node-as-a-Root" class="headerlink" title="Preorder Traversal with Left Middle Node as a Root"></a>Preorder Traversal with Left Middle Node as a Root</h4><h5 id="Complexity-analysis"><a href="#Complexity-analysis" class="headerlink" title="Complexity analysis"></a>Complexity analysis</h5><ul>
-<li><strong>Time</strong>: $O(N)$. Since we visit each node exactly once.</li>
-<li><strong>Space</strong>: $O(N)$. It takes $O(N)$ to keep the output and $O(logN)$ to keep the recursion stack.</li>
+<h2 id="Delaration-amp-amp-Discussion"><a href="#Delaration-amp-amp-Discussion" class="headerlink" title="Delaration &amp;&amp; Discussion"></a>Delaration &amp;&amp; Discussion</h2><h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><h4 id="Categorize-by-count"><a href="#Categorize-by-count" class="headerlink" title="Categorize by count"></a>Categorize by count</h4><p>We could use the number of occurrence of each <code>str</code> as key and the corresponding <code>str</code> as the value. If ther have the same count of characters, the have to be <strong>anagrams</strong>.</p>
+<h5 id="Complexity-analysis"><a href="#Complexity-analysis" class="headerlink" title="Complexity analysis"></a>Complexity analysis</h5><ul>
+<li><strong>Time</strong>: $O(NK)$, where $N$ is the length of <code>strs</code> and $K$ is the maximum length of a string in strs.</li>
+<li><strong>Space</strong>: $O(NK)$. The total information content strored in the result</li>
 </ul>
-<h5 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */</span>
-<span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token class-name">TreeNode</span> <span class="token function">sortedArrayToBST</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment">// empty array, then empty tree</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>nums<span class="token punctuation">.</span>length <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+<h5 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">List</span><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span></span> <span class="token function">groupAnagrams</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> strs<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>strs <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">||</span>strs<span class="token punctuation">.</span>length <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
         
-        <span class="token class-name">TreeNode</span> root <span class="token operator">=</span> <span class="token function">helper</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> nums<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> root<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    
-    <span class="token keyword">private</span> <span class="token class-name">TreeNode</span> <span class="token function">helper</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> left<span class="token punctuation">,</span> <span class="token keyword">int</span> right<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>left <span class="token operator">&gt;</span> right<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">List</span><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span></span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">String</span> s <span class="token operator">:</span> strs<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// count the occurrence of each character in the string element</span>
+            <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> cr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token number">26</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">char</span> c <span class="token operator">:</span> s<span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                cr<span class="token punctuation">[</span>c <span class="token operator">-</span> <span class="token string">'a'</span><span class="token punctuation">]</span><span class="token operator">++</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            
+            <span class="token class-name">String</span> str <span class="token operator">=</span> <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>cr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">// put the string into the hash table</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>map<span class="token punctuation">.</span><span class="token function">containsKey</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>str<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            map<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-        <span class="token comment">// choose the left middle node as root.</span>
-        <span class="token keyword">int</span> mid <span class="token operator">=</span> <span class="token punctuation">(</span>left <span class="token operator">+</span> right<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
-        
-        <span class="token comment">// construct the node, and recursively get the left and right node</span>
-        <span class="token class-name">TreeNode</span> root <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TreeNode</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        root<span class="token punctuation">.</span>left <span class="token operator">=</span> <span class="token function">helper</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span> left<span class="token punctuation">,</span> mid <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        root<span class="token punctuation">.</span>right <span class="token operator">=</span> <span class="token function">helper</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span> mid <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> right<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> root<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span>map<span class="token punctuation">.</span><span class="token function">values</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -480,7 +466,7 @@ Explanation: [1,3] and [3,1] are both a height-balanced BSTs.<span aria-hidden="
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://beartechroad.github.io/108-convert-sorted-array-to-binary-search-tree-8993ce443890/">https://beartechroad.github.io/108-convert-sorted-array-to-binary-search-tree-8993ce443890/</a>
+                    <a href="https://beartechroad.github.io/49-group-anagrams-a768a50a5e66/">https://beartechroad.github.io/49-group-anagrams-a768a50a5e66/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -518,12 +504,12 @@ Explanation: [1,3] and [3,1] are both a height-balanced BSTs.<span aria-hidden="
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/BST/">
-                                    <span class="chip bg-color">BST</span>
+                                <a href="/tags/Hash-Table/">
+                                    <span class="chip bg-color">Hash Table</span>
                                 </a>
                             
-                                <a href="/tags/DFS/">
-                                    <span class="chip bg-color">DFS</span>
+                                <a href="/tags/String/">
+                                    <span class="chip bg-color">String</span>
                                 </a>
                             
                         </div>
@@ -569,29 +555,30 @@ Explanation: [1,3] and [3,1] are both a height-balanced BSTs.<span aria-hidden="
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/169-majority-element-65b398bb63dc/">
+                <a href="/49-group-anagrams-a768a50a5e66/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.webp" class="responsive-img" alt="169. Majority Element">
+                        <img src="/medias/featureimages/11.webp" class="responsive-img" alt="49. Group Anagrams">
                         
-                        <span class="card-title">169. Majority Element</span>
+                        <span class="card-title">49. Group Anagrams</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            LeetCode 169
+                            LeetCode 49
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-11
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-11
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -604,19 +591,16 @@ Explanation: [1,3] and [3,1] are both a height-balanced BSTs.<span aria-hidden="
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/tags/Array/">
-                        <span class="chip bg-color">Array</span>
-                    </a>
                     
                     <a href="/tags/Hash-Table/">
                         <span class="chip bg-color">Hash Table</span>
                     </a>
                     
-                    <a href="/tags/Divide-and-Conquer/">
-                        <span class="chip bg-color">Divide and Conquer</span>
+                    <a href="/tags/String/">
+                        <span class="chip bg-color">String</span>
                     </a>
                     
                 </div>
@@ -630,19 +614,19 @@ Explanation: [1,3] and [3,1] are both a height-balanced BSTs.<span aria-hidden="
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/230-kth-smallest-element-in-a-bst-dd14a268ac55/">
+                <a href="/39-combination-sum-183159b0be71/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.webp" class="responsive-img" alt="230. Kth Smallest Element in a BST">
+                        <img src="/medias/featureimages/16.webp" class="responsive-img" alt="39. Combination Sum">
                         
-                        <span class="card-title">230. Kth Smallest Element in a BST</span>
+                        <span class="card-title">39. Combination Sum</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            LeetCode 230
+                            LeetCode 39
                         
                     </div>
                     <div class="publish-info">
@@ -664,12 +648,12 @@ Explanation: [1,3] and [3,1] are both a height-balanced BSTs.<span aria-hidden="
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/BST/">
-                        <span class="chip bg-color">BST</span>
+                    <a href="/tags/Array/">
+                        <span class="chip bg-color">Array</span>
                     </a>
                     
-                    <a href="/tags/DFS/">
-                        <span class="chip bg-color">DFS</span>
+                    <a href="/tags/Backtracking/">
+                        <span class="chip bg-color">Backtracking</span>
                     </a>
                     
                 </div>
