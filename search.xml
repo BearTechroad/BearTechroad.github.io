@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>238. Product of Array Except Self</title>
+      <link href="238-product-of-array-except-self-cd29e0d050bc/"/>
+      <url>238-product-of-array-except-self-cd29e0d050bc/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given an array <code>nums</code> of <em>n</em> integers where <em>n</em> &gt; 1,  return an array <code>output</code> such that <code>output[i]</code> is equal to the product of all the elements of <code>nums</code> except <code>nums[i]</code>.</p><p><strong>Example:</strong></p><pre class="line-numbers language-none"><code class="language-none">Input:  [1,2,3,4]Output: [24,12,8,6]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p><strong>Constraint:</strong> It’s guaranteed that the product of the elements of any prefix or suffix of the array (including the whole array) fits in a 32 bit integer.</p><p><strong>Note:</strong> Please solve it <strong>without division</strong> and in O(<em>n</em>).</p><p><strong>Follow up:</strong><br>Could you solve it with constant space complexity? (The output array <strong>does not</strong> count as extra space for the purpose of space complexity analysis.)</p><h2 id="Declaration-amp-amp-Discussion"><a href="#Declaration-amp-amp-Discussion" class="headerlink" title="Declaration &amp;&amp; Discussion"></a>Declaration &amp;&amp; Discussion</h2><h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><h4 id="Left-and-Right-product-lists"><a href="#Left-and-Right-product-lists" class="headerlink" title="Left and Right product lists"></a>Left and Right product lists</h4><p>For every given index <code>i</code>, we can take the product of all the numbers to the left and mulptiply it by the product of all the numbers to the right. This will take two extra arrays <code>L</code> and <code>R</code> to store the product of all the numbers to the left and right of the index <code>i</code>.</p><h5 id="Complexity-analysis"><a href="#Complexity-analysis" class="headerlink" title="Complexity analysis"></a>Complexity analysis</h5><ul><li><strong>Time</strong>: $O(N)$.</li><li><strong>Space</strong>:$O(N)$. Since we use two extra arrays of length <code>N</code>.</li></ul><h5 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h4 id="O-1-Space-Approach"><a href="#O-1-Space-Approach" class="headerlink" title="$O(1)$ Space Approach"></a>$O(1)$ Space Approach</h4><p>Since the result array is not counted as space used. We could use the result array to first store the product of all the numbers to the left. It is now used as array <code>L</code>. And then, we can keep a pointer <code>R</code> which for each step, store the product of all the numbers to the right. By multiplying theses numbers, we can get rid of the extra space used.</p><h5 id="Complexity-analysis-1"><a href="#Complexity-analysis-1" class="headerlink" title="Complexity analysis"></a>Complexity analysis</h5><ul><li><strong>Time</strong>: $O(N)$.</li><li><strong>Space</strong>: $O(1)$</li></ul><h5 id="Code-1"><a href="#Code-1" class="headerlink" title="Code"></a>Code</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>    <span class="token keyword">public</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">productExceptSelf</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>        <span class="token comment">// the length of the input array</span>        <span class="token keyword">int</span> length <span class="token operator">=</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span>                <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> res <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span>length<span class="token punctuation">]</span><span class="token punctuation">;</span>                <span class="token comment">// in the first loop, res contains the product of all the elements to the left.</span>        res<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>                <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>            <span class="token comment">// res[i] is equal to the product of res[i - 1] and the element in num having index i-1</span>            res<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> nums<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">*</span> res<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>        <span class="token punctuation">}</span>                <span class="token comment">// R contains all the elements to the right of an index</span>        <span class="token keyword">int</span> right <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&gt;=</span> <span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>            <span class="token comment">// for index i, we update right and the corresponding res</span>            res<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> res<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">*</span> right<span class="token punctuation">;</span>            right <span class="token operator">*=</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>        <span class="token punctuation">}</span>                <span class="token keyword">return</span> res<span class="token punctuation">;</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> LeetCode </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> Array </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>206. Reverse Linked List</title>
       <link href="206-reverse-linked-list-bb91ae4ee301/"/>
       <url>206-reverse-linked-list-bb91ae4ee301/</url>
@@ -22,9 +49,9 @@
             
             <tag> Java </tag>
             
-            <tag> Linked List </tag>
-            
             <tag> Recursion </tag>
+            
+            <tag> Linked List </tag>
             
         </tags>
       
@@ -51,11 +78,11 @@
             
             <tag> Java </tag>
             
-            <tag> Stack </tag>
+            <tag> Tree </tag>
             
             <tag> Recursion </tag>
             
-            <tag> Tree </tag>
+            <tag> Stack </tag>
             
         </tags>
       
@@ -194,9 +221,9 @@
             
             <tag> Java </tag>
             
-            <tag> Recursion </tag>
-            
             <tag> Tree </tag>
+            
+            <tag> Recursion </tag>
             
         </tags>
       
@@ -225,9 +252,9 @@
             
             <tag> DFS </tag>
             
-            <tag> Recursion </tag>
-            
             <tag> Tree </tag>
+            
+            <tag> Recursion </tag>
             
         </tags>
       
@@ -312,9 +339,9 @@
             
             <tag> Java </tag>
             
-            <tag> Linked List </tag>
-            
             <tag> Recursion </tag>
+            
+            <tag> Linked List </tag>
             
         </tags>
       
