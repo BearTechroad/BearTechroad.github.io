@@ -369,7 +369,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    147
+                    170
                 </div>
                 
 
@@ -407,7 +407,8 @@ Output: false<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
 <li><code>s</code> and <code>t</code> consist of lowercase English letters. </li>
 </ul>
 <p><strong>Follow up:</strong> What if the inputs contain Unicode characters? How would you adapt your solution to such a case?</p>
-<h2 id="Declaration-amp-amp-Discussion"><a href="#Declaration-amp-amp-Discussion" class="headerlink" title="Declaration &amp;&amp; Discussion"></a>Declaration &amp;&amp; Discussion</h2><h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><h4 id="Sorting"><a href="#Sorting" class="headerlink" title="Sorting"></a>Sorting</h4><h5 id="Complexity-analysis"><a href="#Complexity-analysis" class="headerlink" title="Complexity analysis"></a>Complexity analysis</h5><ul>
+<h2 id="Declaration-amp-amp-Discussion"><a href="#Declaration-amp-amp-Discussion" class="headerlink" title="Declaration &amp;&amp; Discussion"></a>Declaration &amp;&amp; Discussion</h2><h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><h4 id="Sorting"><a href="#Sorting" class="headerlink" title="Sorting"></a>Sorting</h4><p>If <code>t</code> is an anagram of <code>s</code>, they must contain the same letters. Thus, sorting both strings will result in two identical strings.</p>
+<h5 id="Complexity-analysis"><a href="#Complexity-analysis" class="headerlink" title="Complexity analysis"></a>Complexity analysis</h5><ul>
 <li><strong>Time</strong>: $O(NlogN)$. Since Java’s sorting algorithm costs $NlogN$ time.</li>
 <li><strong>Space</strong>: $O(1)$. Typically, constant space since no extra space used.</li>
 </ul>
